@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{455D808A-0878-40C8-9B86-49B7F6305099}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UpdateRecordModule_IBSH</RootNamespace>
+    <AssemblyName>UpdateRecordModule_IBSH</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>http://localhost/UpdateRecordModule_SH/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=4.3.0.0, Culture=neutral, PublicKeyToken=9a40d5a4b59e5256, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Aspose.Cells.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Campus.DocumentValidator, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Campus.DocumentValidator.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Campus.Import, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Campus.Import.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Campus.Validator, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Campus.Validator.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Campus.Windows, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Campus.Windows.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\DevComponents.DotNetBar2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA, Version=2.1.4.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Authentication, Version=1.9.0.16, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Authentication.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Data, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Deployment, Version=1.0.0.13, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Deployment.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.DSAUtil, Version=3.9.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.DSAUtil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.LogAgent, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.LogAgent.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Permission, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Permission.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Presentation, Version=1.1.0.18, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Synchronization, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Synchronization.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.UDT, Version=1.0.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.UDT.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Framework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IntelliSchool.DSA.ClientFramework, Version=1.2.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\IntelliSchool.DSA.ClientFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="K12.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\K12.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="K12.Presentation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\K12.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ReportHelper, Version=2012.10.25.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\ReportHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SHSchool.Data, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SHSchool.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.API.PlugIn, Version=0.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.API.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Common, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Common.DotNetBar, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Common.DotNetBar.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Core, Version=1.0.2.17, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Core.General, Version=1.0.6.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Core.General.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Customization.Data, Version=1.3.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Customization.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Customization.PlugIn, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Customization.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.ErrorReporting, Version=1.0.2.11, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.ErrorReporting.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Batch\BatchGraduateRecForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Batch\BatchGraduateRecForm.Designer.cs">
+      <DependentUpon>BatchGraduateRecForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Batch\BatchGraduateRec_WarningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Batch\BatchGraduateRec_WarningForm.Designer.cs">
+      <DependentUpon>BatchGraduateRec_WarningForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Batch\BatchNewStudUpdateRecForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Batch\BatchNewStudUpdateRecForm.Designer.cs">
+      <DependentUpon>BatchNewStudUpdateRecForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Batch\BatchNewStudUpdateRecManager.cs" />
+    <Compile Include="Batch\WarningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Batch\WarningForm.Designer.cs">
+      <DependentUpon>WarningForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeforeEnrollmentItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BeforeEnrollmentItem.Designer.cs">
+      <DependentUpon>BeforeEnrollmentItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BL\Get.cs" />
+    <Compile Include="BL\ReportSelector.cs" />
+    <Compile Include="BL\StudUpdateRecBatchRec.cs" />
+    <Compile Include="BL\StudUpdateRecDoc.cs" />
+    <Compile Include="BL\Util.cs" />
+    <Compile Include="DAL\DALTransfer.cs" />
+    <Compile Include="DAL\FDQuery.cs" />
+    <Compile Include="DAL\SchoolData.cs" />
+    <Compile Include="DAL\StudUpdateRecBatchCreator.cs" />
+    <Compile Include="DeleteUpdateRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteUpdateRecordForm.Designer.cs">
+      <DependentUpon>DeleteUpdateRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GovernmentalDocument\BuildWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GovernmentalDocument\BuildWizard.Designer.cs">
+      <DependentUpon>BuildWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GovernmentalDocument\ListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GovernmentalDocument\ListForm.Designer.cs">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GovernmentalDocument\Reports\List\EnrollmentList.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\ExtendingStudentGraduateList.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\ExtendingStudentList.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\ExtendingStudentUpdateRecordList.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\GraduatingStudentList.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\IReportBuilder.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\ReportBuilder.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\ReportTemplate.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\rpt_UpdateRecord.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\SH_N_All_List.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\StudentUpdateRecordList.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\TransferringStudentUpdateRecordList.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\UtilXml.cs" />
+    <Compile Include="GovernmentalDocument\UpdateRecordADN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GovernmentalDocument\UpdateRecordADN.Designer.cs">
+      <DependentUpon>UpdateRecordADN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExport\ExportEnrollmentList.cs" />
+    <Compile Include="ImportExport\ExportGraduateList.cs" />
+    <Compile Include="ImportExport\ExportStudentV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExport\ExportStudentV2.designer.cs">
+      <DependentUpon>ExportStudentV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExport\ExportStudUpdateRecordList.cs" />
+    <Compile Include="ImportExport\ExportTransferList.cs" />
+    <Compile Include="ImportExport\ImportEnrollmentList.cs" />
+    <Compile Include="ImportExport\ImportGraduateList.cs" />
+    <Compile Include="ImportExport\ImportStudentV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExport\ImportStudentV2.designer.cs">
+      <DependentUpon>ImportStudentV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExport\ImportStudUpdateRecordList.cs" />
+    <Compile Include="ImportExport\ImportTransferList.cs" />
+    <Compile Include="ImportExport\ImportUpdateRecCode100.cs" />
+    <Compile Include="ImportExport\ImportUtil.cs" />
+    <Compile Include="UpdateRecordItemControls\IUpdateRecordInfo.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="PermRecLogProcess.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateRecordItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateRecordItem.Designer.cs">
+      <DependentUpon>UpdateRecordItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateRecordItemControls\UpdateRecordInfo01.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateRecordItemControls\UpdateRecordInfo01.Designer.cs">
+      <DependentUpon>UpdateRecordInfo01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateRecordItemControls\UpdateRecordInfo02.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateRecordItemControls\UpdateRecordInfo02.Designer.cs">
+      <DependentUpon>UpdateRecordInfo02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateRecordItemControls\UpdateRecordInfo03.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateRecordItemControls\UpdateRecordInfo03.Designer.cs">
+      <DependentUpon>UpdateRecordInfo03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateRecordItemControls\UpdateRecordInfo04.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateRecordItemControls\UpdateRecordInfo04.Designer.cs">
+      <DependentUpon>UpdateRecordInfo04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateRecordItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateRecordItemForm.Designer.cs">
+      <DependentUpon>UpdateRecordItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="utility.cs" />
+    <Compile Include="Utility\FormAndLogDataManager.cs" />
+    <Compile Include="Utility\SchoolListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\SchoolListForm.Designer.cs">
+      <DependentUpon>SchoolListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\UITool.cs" />
+    <Compile Include="ValidationRule\CounselRowValidatorFactory.cs" />
+    <Compile Include="ValidationRule\RowValidator\StudCheckStudentNumberStatusVal.cs" />
+    <Compile Include="ValidationRule\RowValidator\StudCheckUpdateRecordVal01.cs" />
+    <Compile Include="Wizards\ChangeDeptProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\ChangeDeptProcess.designer.cs">
+      <DependentUpon>ChangeDeptProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\ChangeInfoProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\ChangeInfoProcess.designer.cs">
+      <DependentUpon>ChangeInfoProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\NewChangeInfoProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\NewChangeInfoProcess.Designer.cs">
+      <DependentUpon>NewChangeInfoProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\IDNumberCheck.cs" />
+    <Compile Include="Wizards\UpdateRecordInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\UpdateRecordInfo.designer.cs">
+      <DependentUpon>UpdateRecordInfo.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Batch\BatchGraduateRecForm.resx">
+      <DependentUpon>BatchGraduateRecForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Batch\BatchGraduateRec_WarningForm.resx">
+      <DependentUpon>BatchGraduateRec_WarningForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Batch\BatchNewStudUpdateRecForm.resx">
+      <DependentUpon>BatchNewStudUpdateRecForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Batch\WarningForm.resx">
+      <DependentUpon>WarningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeforeEnrollmentItem.resx">
+      <DependentUpon>BeforeEnrollmentItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteUpdateRecordForm.resx">
+      <DependentUpon>DeleteUpdateRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GovernmentalDocument\BuildWizard.resx">
+      <DependentUpon>BuildWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GovernmentalDocument\ListForm.resx">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GovernmentalDocument\UpdateRecordADN.resx">
+      <DependentUpon>UpdateRecordADN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExport\ExportStudentV2.resx">
+      <DependentUpon>ExportStudentV2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExport\ImportStudentV2.resx">
+      <DependentUpon>ImportStudentV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateRecordItem.resx">
+      <DependentUpon>UpdateRecordItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateRecordItemControls\UpdateRecordInfo01.resx">
+      <DependentUpon>UpdateRecordInfo01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateRecordItemControls\UpdateRecordInfo02.resx">
+      <DependentUpon>UpdateRecordInfo02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateRecordItemControls\UpdateRecordInfo03.resx">
+      <DependentUpon>UpdateRecordInfo03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateRecordItemControls\UpdateRecordInfo04.resx">
+      <DependentUpon>UpdateRecordInfo04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateRecordItemForm.resx">
+      <DependentUpon>UpdateRecordItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\SchoolListForm.resx">
+      <DependentUpon>SchoolListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ChangeDeptProcess.resx">
+      <DependentUpon>ChangeDeptProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ChangeInfoProcess.resx">
+      <DependentUpon>ChangeInfoProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\NewChangeInfoProcess.resx">
+      <DependentUpon>NewChangeInfoProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\UpdateRecordInfo.resx">
+      <DependentUpon>UpdateRecordInfo.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnrollmentListTemplate.xls" />
+    <None Include="Resources\ExtendingGraduatingStudentListTemplate.xls" />
+    <None Include="Resources\ExtendingStudentListTemplate.xls" />
+    <None Include="Resources\ExtendingStudentUpdateRecordListTemplate.xls" />
+    <None Include="Resources\GraduatingStudentListTemplate.xls" />
+    <None Include="Resources\JHSchoolList.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\StudentUpdateRecordListTemplate.xls" />
+    <None Include="Resources\TransferringStudentUpdateRecordListTemplate.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpdateCode_SHD.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ImportExport\ImportEnrollmentListVal.xml" />
+    <Content Include="ImportExport\ImportGraduateListVal.xml" />
+    <Content Include="ImportExport\ImportStudUpdateRecordListVal.xml" />
+    <Content Include="ImportExport\ImportTransferListVal.xml" />
+    <Content Include="Library\Aspose.Cells.dll" />
+    <Content Include="Library\Aspose.Cells.xml" />
+    <Content Include="Library\Campus.DocumentValidator.dll" />
+    <Content Include="Library\Campus.DocumentValidator.pdb" />
+    <Content Include="Library\Campus.Import.dll" />
+    <Content Include="Library\Campus.Import.pdb" />
+    <Content Include="Library\Campus.Validator.dll" />
+    <Content Include="Library\Campus.Validator.pdb" />
+    <Content Include="Library\Campus.Windows.dll" />
+    <Content Include="Library\Campus.Windows.pdb" />
+    <Content Include="Library\DevComponents.DotNetBar2.dll" />
+    <Content Include="Library\DevComponents.DotNetBar2.xml" />
+    <Content Include="Library\FISCA.Authentication.dll" />
+    <Content Include="Library\FISCA.Authentication.pdb" />
+    <Content Include="Library\FISCA.Data.dll" />
+    <Content Include="Library\FISCA.Data.pdb" />
+    <Content Include="Library\FISCA.Deployment.dll" />
+    <Content Include="Library\FISCA.Deployment.pdb" />
+    <Content Include="Library\FISCA.dll" />
+    <Content Include="Library\FISCA.DSAUtil.dll" />
+    <Content Include="Library\FISCA.DSAUtil.pdb" />
+    <Content Include="Library\FISCA.LogAgent.dll" />
+    <Content Include="Library\FISCA.LogAgent.pdb" />
+    <Content Include="Library\FISCA.pdb" />
+    <Content Include="Library\FISCA.Permission.dll" />
+    <Content Include="Library\FISCA.Permission.pdb" />
+    <Content Include="Library\FISCA.Presentation.dll" />
+    <Content Include="Library\FISCA.Presentation.pdb" />
+    <Content Include="Library\FISCA.Synchronization.dll" />
+    <Content Include="Library\FISCA.Synchronization.pdb" />
+    <Content Include="Library\FISCA.UDT.dll" />
+    <Content Include="Library\FISCA.UDT.pdb" />
+    <Content Include="Library\Framework.dll" />
+    <Content Include="Library\Framework.pdb" />
+    <Content Include="Library\IntelliSchool.DSA.ClientFramework.dll" />
+    <Content Include="Library\K12.Data.dll" />
+    <Content Include="Library\K12.Data.pdb" />
+    <Content Include="Library\K12.Data.xml" />
+    <Content Include="Library\K12.Presentation.dll" />
+    <Content Include="Library\K12.Presentation.xml" />
+    <Content Include="Library\ReportHelper.dll" />
+    <Content Include="Library\ReportHelper.pdb" />
+    <Content Include="Library\SHSchool.Data.dll" />
+    <Content Include="Library\SHSchool.Data.pdb" />
+    <Content Include="Library\SHSchool.Data.xml" />
+    <Content Include="Library\SmartSchool.API.PlugIn.dll" />
+    <Content Include="Library\SmartSchool.Common.dll" />
+    <Content Include="Library\SmartSchool.Common.DotNetBar.dll" />
+    <Content Include="Library\SmartSchool.Common.DotNetBar.pdb" />
+    <Content Include="Library\SmartSchool.Common.DotNetBar.xml" />
+    <Content Include="Library\SmartSchool.Common.pdb" />
+    <Content Include="Library\SmartSchool.Common.xml" />
+    <Content Include="Library\SmartSchool.Core.dll" />
+    <Content Include="Library\SmartSchool.Core.General.dll" />
+    <Content Include="Library\SmartSchool.Core.General.pdb" />
+    <Content Include="Library\SmartSchool.Core.pdb" />
+    <Content Include="Library\SmartSchool.Customization.Data.dll" />
+    <Content Include="Library\SmartSchool.Customization.Data.xml" />
+    <Content Include="Library\SmartSchool.Customization.PlugIn.dll" />
+    <Content Include="Library\SmartSchool.Customization.PlugIn.xml" />
+    <Content Include="Library\SmartSchool.ErrorReporting.dll" />
+    <Content Include="Library\SmartSchool.ErrorReporting.pdb" />
+    <Content Include="Library\SmartSchool.ErrorReporting.xml" />
+    <Content Include="Resources\btnItemNameList.Image.png" />
+    <Content Include="Resources\demographic_reload_64.png" />
+    <Content Include="Resources\error.ico" />
+    <Content Include="Resources\SHSchoolList.xml" />
+    <Content Include="Resources\warning.ico" />
+    <None Include="Resources\history_save_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="format.xsl" ?>
+<ValidateRule Name="匯入新生異動">
+  <DuplicateDetection>
+    <Detector Name="PrimaryKey1">
+      <Field Name="學號" />
+      <Field Name="狀態" />
+      <Field Name="異動日期" />
+      <Field Name="異動代碼" />
+    </Detector>
+  </DuplicateDetection>
+  <FieldList>
+    <Field Required="True" Name="學號">
+      <Validate AutoCorrect="False" Description="「學號」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+    </Field>
+    <Field Required="True" Name="狀態">
+      <Validate AutoCorrect="False" Description="「狀態」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+    </Field>
+    <Field Required="False" Name="學年度">      
+    </Field>
+    <Field Required="False" Name="學期">      
+    </Field>
+    <Field Required="False" Name="異動年級">      
+    </Field>
+    <Field Required="True" Name="異動代碼">
+      <Validate AutoCorrect="False" Description="「異動代碼」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+    </Field>
+    <Field Required="False" Name="原因及事項">      
+    </Field>
+    <Field Required="True" Name="異動日期">
+      <Validate AutoCorrect="False" Description="「異動日期」不允許空白。" ErrorType="Error" Validator="不可空白" When="" />
+      <Validate AutoCorrect="False" Description="「異動日期」格式錯誤。" ErrorType="Error" Validator="合法日期" When="" />
+    </Field>
+    <Field Required="False" Name="備註">      
+    </Field>
+    <Field Required="False" Name="班別">      
+    </Field>
+    <Field Required="False" Name="科別">      
+    </Field>
+    <Field Required="False" Name="特殊身分代碼">      
+    </Field>
+    <Field Required="False" Name="入學資格證明文件">     
+    </Field>
+    <Field Required="False" Name="異動姓名">      
+    </Field>
+    <Field Required="False" Name="異動學號">
+    </Field>
+    <Field Required="False" Name="異動身分證字號">      
+    </Field>
+    <Field Required="False" Name="異動生日" EmptyAlsoValidate="False">
+      <Validate AutoCorrect="False" Description="「異動生日」格式錯誤。" ErrorType="Error" Validator="合法日期" When="" />
+    </Field>
+    <Field Required="False" Name="異動身分證註記">      
+    </Field>
+    <Field Required="False" Name="異動性別">      
+    </Field>
+    <Field Required="False" Name="畢業國中">      
+    </Field>
+    <Field Required="False" Name="畢業國中所在地代碼">      
+    </Field>
+    <Field Required="False" Name="畢業國中學校代碼">      
+    </Field>
+    <Field Required="False" Name="畢業國中入學資格註記">
+    </Field>
+    <Field Required="False" Name="國中畢業學年度" EmptyAlsoValidate="False">
+      <Validate AutoCorrect="False" Description="" ErrorType="Error" Validator="Integer3000" When="" />
+    </Field>
+    <Field Required="False" Name="核准日期" EmptyAlsoValidate="False">
+      <Validate AutoCorrect="False" Description="「核准日期」格式錯誤。" ErrorType="Error" Validator="合法日期" When="" />
+    </Field>
+    <Field Required="False" Name="核准文號">      
+    </Field>
+  </FieldList>
+  <ValidatorList>
+    <FieldValidator Name="不可空白" Type="STRINGLENGTH">
+      <MinLength>1</MinLength>
+    </FieldValidator>
+    <FieldValidator Name="Integer3000" Type="Integer">
+      <MinValue>1</MinValue>
+      <MaxValue>3000</MaxValue>
+    </FieldValidator>
+    <RowValidator Name="學號是否存在" Type="STUDCHECKSTUDENTNUMBERSTATUSVAL" />
+    <RowValidator Name="是否已有新生異動" Type="STUDCHECKUPDATERECORDVAL01" />
+    <FieldValidator Name="合法日期" Type="MixDate">
+      <!-- Gregorian | Taiwan-->
+      <!-- Pattern 中需要 Year,Month,Day 三個 Group。-->
+      <!-- 2007/8/8 (年/月/日) -->
+      <ValidPattern DateType="Gregorian">
+        <![CDATA[^(?<Year>[0-9]{4})/(?<Month>[0-9]{1,2})/(?<Day>[0-9]{1,2})$]]>
+      </ValidPattern>
+      <Matchs CorrectTo="yyyy/MM/dd">
+        <!-- 96/8/8 (年/月/日)-->
+        <Match DateType="Taiwan"><![CDATA[^(?<Year>1?[0-9]{2})/(?<Month>[0-9]{1,2})/(?<Day>[0-9]{1,2})$]]></Match>
+        <!-- 96-8-8 (年-月-日)-->
+        <Match DateType="Taiwan"><![CDATA[^(?<Year>1?[0-9]{2})-(?<Month>[0-9]{1,2})-(?<Day>[0-9]{1,2})$]]></Match>
+        <!-- 960808 (年月日)-->
+        <Match DateType="Taiwan"><![CDATA[^(?<Year>1?[0-9]{2})(?<Month>[0-9]{2})(?<Day>[0-9]{2})$]]></Match>
+        <!-- 2007-8-8 (年/月/日)-->
+        <Match DateType="Gregorian"><![CDATA[^(?<Year>[0-9]{4})-(?<Month>[0-9]{1,2})-(?<Day>[0-9]{1,2})$]]></Match>
+        <!-- 8-8-2007 (月/日/年)-->
+        <Match DateType="Gregorian"><![CDATA[^(?<Month>[0-9]{1,2})-(?<Day>[0-9]{1,2})-(?<Year>[0-9]{4})$]]></Match>
+        <!-- 20070812 (年月日)-->
+        <Match DateType="Gregorian"><![CDATA[^(?<Year>[0-9]{4})(?<Month>[0-9]{2})(?<Day>[0-9]{2})$]]></Match>
+      </Matchs>
+    </FieldValidator>
+  </ValidatorList>
+  <RowValidate>
+    <Validate AutoCorrect="False" Description="「學號+狀態」不存在系統內。" ErrorType="Error" Validator="學號是否存在" When="" />
+    <Validate AutoCorrect="False" Description="「新生異動」已存在系統內,當異動日期與異動代碼相同，將只會更新所勾選資料；當異動日期與異動代碼不同，將會以檔案內欄位資料完整覆蓋原本資料。" ErrorType="Warning" Validator="是否已有新生異動" When="" />
+  </RowValidate>
+  <ConditionList />
+</ValidateRule>
