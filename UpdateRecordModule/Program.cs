@@ -164,13 +164,13 @@ namespace UpdateRecordModule_IBSH
 
             // 批次畢業異動
             RibbonBarButton rbBatchGraduateRec = MotherForm.RibbonBarItems["學生", "教務"]["畢業作業"];
-            rbBatchGraduateRec["批次畢業異動"].Enable = FISCA.Permission.UserAcl.Current["Button0095"].Executable;
+            rbBatchGraduateRec["批次畢業異動"].Enable = FISCA.Permission.UserAcl.Current["SHSchool.Student.rbBatchGraduateRec001"].Executable;
             rbBatchGraduateRec["批次畢業異動"].Click += delegate
             {
                 Batch.BatchGraduateRecForm bgrf = new Batch.BatchGraduateRecForm();
                 bgrf.ShowDialog();
             };
-            //ribbon2.Add(new RibbonFeature("Button0095", "批次畢業異動"));
+            ribbon2.Add(new RibbonFeature("SHSchool.Student.rbBatchGraduateRec001", "批次畢業異動"));
 
             // 加入權限代碼
             ribbon2.Add(new RibbonFeature("SHSchool.Student.UpdateRecordForm.Button01", "轉科"));
