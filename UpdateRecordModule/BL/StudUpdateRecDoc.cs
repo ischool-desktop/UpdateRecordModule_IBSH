@@ -212,5 +212,34 @@ namespace UpdateRecordModule_IBSH.BL
         /// 應畢業學年度
         /// </summary>
         public string ExpectGraduateSchoolYear { get; set; }
+        /// <summary>
+        /// 借讀學校代碼
+        /// </summary>
+        public string Code7SchoolCode { get; set; }
+
+        /// <summary>
+        /// 借讀科別代碼
+        /// </summary>
+        public string Code7DeptCode { get; set; }
+
+        /// <summary>
+        /// 申請開始日期
+        /// </summary>
+        public string Code71BeginDate { get; set; }
+
+        /// <summary>
+        /// 申請結束日期
+        /// </summary>
+        public string Code71EndDate { get; set; }
+
+        /// <summary>
+        /// 實際開始日期
+        /// </summary>
+        public string Code72BeginDate { get; set; }
+
+        /// <summary>
+        /// 實際結束日期
+        /// </summary>
+        public string Code72EndDate { get; set; }
     }
 }

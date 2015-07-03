@@ -46,8 +46,12 @@ namespace UpdateRecordModule_IBSH.ImportExport
             _ExportList.Add("核准文號");
             _ExportList.Add("應畢業學年度");
             _ExportList.Add("更正後身分證註記");
-
-
+            _ExportList.Add("借讀學校代碼");
+            _ExportList.Add("借讀科別代碼");
+            _ExportList.Add("申請開始日期");
+            _ExportList.Add("申請結束日期");
+            _ExportList.Add("實際開始日期");
+            _ExportList.Add("實際結束日期");
             _ExportList.Add("狀態");
         }
         public override void InitializeExport(SmartSchool.API.PlugIn.Export.ExportWizard wizard)

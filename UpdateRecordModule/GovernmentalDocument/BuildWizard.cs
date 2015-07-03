@@ -46,9 +46,11 @@ namespace UpdateRecordModule_IBSH.GovernmentalDocument
                 NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.學籍異動名冊);
                 NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.轉入學生名冊);
                 NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.畢業名冊);
-                //NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.延修生名冊);
-                //NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.延修生學籍異動名冊);
-                //NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.延修生畢業名冊);
+                NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.延修生名冊);
+                NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.延修生學籍異動名冊);
+                NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.延修生畢業名冊);
+                NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.新生保留錄取資格名冊);
+                NameList.Add(DAL.StudUpdateRecBatchCreator.UpdateRecBatchType.借讀學生名冊);
          
 
             foreach (DAL.StudUpdateRecBatchCreator.UpdateRecBatchType item in NameList)

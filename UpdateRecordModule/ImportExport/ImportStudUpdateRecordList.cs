@@ -247,6 +247,26 @@ namespace UpdateRecordModule_IBSH.ImportExport
                     // 核准文號
                     if (ir.Contains("核准文號"))
                         UpdateRec.ADNumber = ir.GetValue("核准文號");
+
+                    // 借讀學校代碼
+                    if (ir.Contains("借讀學校代碼"))
+                        UpdateRec.Code7SchoolCode = ir.GetValue("借讀學校代碼");
+                    // 借讀科別代碼
+                    if (ir.Contains("借讀科別代碼"))
+                        UpdateRec.Code7DeptCode = ir.GetValue("借讀科別代碼");
+                    // 申請開始日期
+                    if (ir.Contains("申請開始日期"))
+                        UpdateRec.Code71BeginDate = ir.GetValue("申請開始日期");
+                    // 申請結束日期
+                    if (ir.Contains("申請結束日期"))
+                        UpdateRec.Code71EndDate = ir.GetValue("申請結束日期");
+                    // 實際開始日期
+                    if (ir.Contains("實際開始日期"))
+                        UpdateRec.Code72BeginDate = ir.GetValue("實際開始日期");
+                    // 實際結束日期
+                    if (ir.Contains("實際結束日期"))
+                        UpdateRec.Code72EndDate = ir.GetValue("實際結束日期");
+
                 }
                 else
                 {
@@ -388,6 +408,30 @@ namespace UpdateRecordModule_IBSH.ImportExport
                     // 核准文號
                     if (ir.Contains("核准文號") && mOption.SelectedFields.Contains("核准文號"))
                         UpdateRec.ADNumber = ir.GetValue("核准文號");
+
+                    // 借讀學校代碼
+                    if (ir.Contains("借讀學校代碼") && mOption.SelectedFields.Contains("借讀學校代碼"))
+                        UpdateRec.Code7SchoolCode = ir.GetValue("借讀學校代碼");
+
+                    // 借讀科別代碼
+                    if (ir.Contains("借讀科別代碼") && mOption.SelectedFields.Contains("借讀科別代碼"))
+                        UpdateRec.Code7DeptCode = ir.GetValue("借讀科別代碼");
+
+                    // 申請開始日期
+                    if (ir.Contains("申請開始日期") && mOption.SelectedFields.Contains("申請開始日期"))
+                        UpdateRec.Code71BeginDate = ir.GetValue("申請開始日期");
+
+                    // 申請結束日期
+                    if (ir.Contains("申請結束日期") && mOption.SelectedFields.Contains("申請結束日期"))
+                        UpdateRec.Code71EndDate = ir.GetValue("申請結束日期");
+
+                    // 實際開始日期
+                    if (ir.Contains("實際開始日期") && mOption.SelectedFields.Contains("實際開始日期"))
+                        UpdateRec.Code72BeginDate = ir.GetValue("實際開始日期");
+
+                    // 實際結束日期
+                    if (ir.Contains("實際結束日期") && mOption.SelectedFields.Contains("實際結束日期"))
+                        UpdateRec.Code72EndDate = ir.GetValue("實際結束日期");
 
                 }
 

@@ -50,7 +50,8 @@ namespace UpdateRecordModule_IBSH.ImportExport
             _ExportList.Add("原就讀備查文號");
             _ExportList.Add("核准日期");
             _ExportList.Add("核准文號");
-            _ExportList.Add("轉入身分別代碼");            
+            _ExportList.Add("轉入身分別代碼");
+            _ExportList.Add("狀態");
         }
 
 

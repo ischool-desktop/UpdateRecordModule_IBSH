@@ -26,6 +26,7 @@ namespace UpdateRecordModule_IBSH
         private string _StudentID;
         bool _checkSave = false;
 
+public bool _chkLoadForm = true;
         // Log
         private UpdateRecordModule_IBSH.PermRecLogProcess _prlp;
 
@@ -180,16 +181,12 @@ namespace UpdateRecordModule_IBSH
             SetLoadUpdateSchoolYearSemester(strSchoolYear, strSemester, _StudUpdateRec.GradeYear);
 
             // 用異動代碼判斷是哪種異動
-            string UpdateType = string.Empty;
-            List<string> xx = (from elm in _UpdateCode.Elements("異動") where elm.Element("代號").Value == _StudUpdateRec.UpdateCode select elm.Element("分類").Value).ToList();
-            if (xx.Count > 0)
-                UpdateType = xx[0];
+            string UpdateType = utility.GetUpdateTypeByCode(_StudUpdateRec.UpdateCode);
 
             // 001-新生
             List<XElement> UpdateCodeElms = (from elm in _UpdateCode.Elements("異動") where elm.Element("分類").Value == UpdateType select elm).ToList();
             if (_StudUpdateRec == null)
                 _StudUpdateRec = _DefStudUpdateRec;
-
 
             if (UpdateType == "學籍異動")
             {
@@ -251,8 +248,17 @@ namespace UpdateRecordModule_IBSH
                 if (_StudUpdateRec != null)
                     if (int.TryParse(_StudUpdateRec.UpdateCode, out codeInt) && _actMode == actMode.新增)
                     {
+                        int icode;
+                        List<SHUpdateRecordRecord> UpRec01List = new List<SHUpdateRecordRecord>();
                         // 檢查是否有新生異動
-                        List<SHUpdateRecordRecord> UpRec01List = (from data in SHUpdateRecord.SelectByStudentID(_StudentID) where int.Parse(data.UpdateCode) < 100 select data).ToList();
+                        foreach (SHUpdateRecordRecord rec in SHUpdateRecord.SelectByStudentID(_StudentID))
+                        {
+                            if (int.TryParse(rec.UpdateCode, out icode))
+                            {
+                                if (icode > 0 && icode < 100)
+                                    UpRec01List.Add(rec);
+                            }
+                        }
                         if (UpRec01List.Count > 0 && codeInt < 100)
                             if (FISCA.Presentation.Controls.MsgBox.Show("已有" + UpRec01List.Count + "筆新生異動，是否覆蓋", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
                                 SHUpdateRecord.Delete(UpRec01List);
@@ -260,8 +266,8 @@ namespace UpdateRecordModule_IBSH
                                 return;
 
                         // 檢查是否有畢業異動
-                        List<SHUpdateRecordRecord> UpRec05List = (from data in SHUpdateRecord.SelectByStudentID(_StudentID) where int.Parse(data.UpdateCode) > 500 select data).ToList();
-                        if (UpRec05List.Count > 0 && codeInt > 500)
+                        List<SHUpdateRecordRecord> UpRec05List = (from data in SHUpdateRecord.SelectByStudentID(_StudentID) where data.UpdateCode == "501" select data).ToList();
+                        if (UpRec05List.Count > 0 && codeInt == 501)
                             if (FISCA.Presentation.Controls.MsgBox.Show("已有" + UpRec01List.Count + "筆畢業異動，是否覆蓋", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
                                 SHUpdateRecord.Delete(UpRec05List);
                             else
@@ -273,12 +279,6 @@ namespace UpdateRecordModule_IBSH
                     // 儲存學年度學期 年級
                     _StudUpdateRec.SchoolYear = intSchoolYear.Value;
                     _StudUpdateRec.Semester = intSemester.Value;
-
-                    //// 過濾科別:
-                    //int deptIdx = _StudUpdateRec.Department.IndexOf(":");
-                    //if (deptIdx > 1)
-                    //    _StudUpdateRec.Department = _StudUpdateRec.Department.Substring(0, deptIdx);
-
 
                     if (cbxGradeYear.Text == "延修生")
                         _StudUpdateRec.GradeYear = "延修生";

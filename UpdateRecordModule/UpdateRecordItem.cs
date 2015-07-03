@@ -222,19 +222,9 @@ namespace UpdateRecordModule_IBSH
         private void EditStudentUpdateRecord()
         {
             SHUpdateRecordRecord objUpdate = lstRecord.SelectedItems[0].Tag as SHUpdateRecordRecord;
-            
-            // 檢查畫面是否
-            XElement _UpdateCode = DAL.DALTransfer.GetUpdateCodeList();
-            List<string> xx = (from elm in _UpdateCode.Elements("異動") where elm.Element("代號").Value == objUpdate.UpdateCode select elm.Element("代號").Value).ToList();
-            if (xx.Count==0)
-            {
-                FISCA.Presentation.Controls.MsgBox.Show("異動代碼無法解析，無法開啟相關輸入畫面。");
-                return;
-            }
-
-
             UpdateRecordItemForm form = new UpdateRecordItemForm(UpdateRecordItemForm.actMode.修改, objUpdate, PrimaryKey);
-            form.ShowDialog();
+            if (form._chkLoadForm)
+                form.ShowDialog();
             
         }
 

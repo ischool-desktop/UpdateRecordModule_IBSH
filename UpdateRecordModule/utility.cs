@@ -202,5 +202,32 @@ namespace UpdateRecordModule_IBSH
             }
             return retVal;
         }
+
+        /// <summary>
+        /// 透過異動代碼區間來判斷異動類別
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public static string GetUpdateTypeByCode(string code)
+        {
+            string retVal = "";
+
+            int intcode;
+            if (int.TryParse(code, out intcode))
+            {
+                if (intcode > 0 && intcode < 100)
+                    retVal = "新生異動";
+
+                if (intcode >= 100 && intcode < 200)
+                    retVal = "轉入異動";
+
+                if (intcode >= 200 && intcode != 501)
+                    retVal = "學籍異動";
+
+                if (intcode == 501)
+                    retVal = "畢業異動";
+            }
+            return retVal;
+        }
     }
 }

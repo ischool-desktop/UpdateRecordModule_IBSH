@@ -83,3 +83,4 @@ D:\GitProjModules\ischoolDesktop\UpdateRecordModule_IBSH\UpdateRecordModule\obj\
 D:\GitProjModules\ischoolDesktop\UpdateRecordModule_IBSH\UpdateRecordModule\obj\Debug\UpdateRecordModule_IBSH.csproj.GenerateResource.Cache
 D:\GitProjModules\ischoolDesktop\UpdateRecordModule_IBSH\UpdateRecordModule\obj\Debug\UpdateRecordModule_IBSH.dll
 D:\GitProjModules\ischoolDesktop\UpdateRecordModule_IBSH\UpdateRecordModule\obj\Debug\UpdateRecordModule_IBSH.pdb
+D:\GitProjModules\ischoolDesktop\UpdateRecordModule_IBSH\UpdateRecordModule\obj\Debug\UpdateRecordModule_IBSH.csprojResolveAssemblyReference.cache

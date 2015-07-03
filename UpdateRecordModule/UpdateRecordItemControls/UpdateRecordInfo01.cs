@@ -42,6 +42,7 @@ namespace UpdateRecordModule_IBSH.UpdateRecordItemControls
             cbxGender.Items.Add("男");
             cbxGender.Items.Add("女");
 
+            cbxClass.DropDownWidth = 300;
 
             _UpdateRec = UpdateRec;
             _prlp = prlp;
@@ -113,6 +114,12 @@ namespace UpdateRecordModule_IBSH.UpdateRecordItemControls
             cbxGender = _faldn.SetFormData(_UpdateRec.Gender, cbxGender, "性別");
             dtBirthday = _faldn.SetFormData(_UpdateRec.Birthdate, dtBirthday, "生日");
             txtSHSchoolYear = _faldn.SetFormData(_UpdateRec.ExpectGraduateSchoolYear, txtSHSchoolYear, "應畢業學年度");
+            txtC7SchoolCode = _faldn.SetFormData(_UpdateRec.Code7SchoolCode, txtC7SchoolCode, "借讀學校代碼");
+            txtC7DeptCode = _faldn.SetFormData(_UpdateRec.Code7DeptCode, txtC7DeptCode, "借讀科別代碼");
+            dtC71BeginDate = _faldn.SetFormData(_UpdateRec.Code71BeginDate, dtC71BeginDate, "申請開始日期");
+            dtC71EndDate = _faldn.SetFormData(_UpdateRec.Code71EndDate, dtC71EndDate, "申請結束日期");
+            dtC72BeginDate = _faldn.SetFormData(_UpdateRec.Code72BeginDate, dtC72BeginDate, "實際開始日期");
+            dtC72EndDate = _faldn.SetFormData(_UpdateRec.Code72EndDate, dtC72EndDate, "實際結束日期");
             
         }       
 
@@ -153,6 +160,12 @@ namespace UpdateRecordModule_IBSH.UpdateRecordItemControls
             _UpdateRec.Birthdate = _faldn.GetFormData(dtBirthday, "生日");
             _UpdateRec.Gender = _faldn.GetFormData(cbxGender, "性別");
             _UpdateRec.ExpectGraduateSchoolYear = _faldn.GetFormData(txtSHSchoolYear, "應畢業學年度");
+            _UpdateRec.Code7SchoolCode = _faldn.GetFormData(txtC7SchoolCode, "借讀學校代碼");
+            _UpdateRec.Code7DeptCode = _faldn.GetFormData(txtC7DeptCode, "借讀科別代碼");
+            _UpdateRec.Code71BeginDate = _faldn.GetFormData(dtC71BeginDate, "申請開始日期");
+            _UpdateRec.Code71EndDate = _faldn.GetFormData(dtC71EndDate, "申請結束日期");
+            _UpdateRec.Code72BeginDate = _faldn.GetFormData(dtC72BeginDate, "實際開始日期");
+            _UpdateRec.Code72EndDate = _faldn.GetFormData(dtC72EndDate, "實際結束日期");
             
 
             // 取得 Log
@@ -176,9 +189,13 @@ namespace UpdateRecordModule_IBSH.UpdateRecordItemControls
 
         private void cbxUpdateCode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string code = cbxUpdateCode.Text.Substring(0, 3);
-            cbxUpdateCode.Items.Add(code);
-            cbxUpdateCode.Text = code;
+            if (cbxUpdateCode.Text.Length >= 3)
+            {
+                string code = cbxUpdateCode.Text.Substring(0, 3);
+                cbxUpdateCode.Items.Add(code);
+                cbxUpdateCode.Text = code;
+            }            
+
        }
         
         private void cbxUpdateCode_TextChanged(object sender, EventArgs e)

@@ -52,6 +52,12 @@
     <Field Required="False" Name="舊科別代碼"></Field>
     <Field Required="False" Name="舊班別"></Field>
     <Field Required="False" Name="更正後資料" Description="學籍異動代碼401~499更正後資料填寫" ></Field>
+    <Field Required="False" Name="借讀學校代碼" EmptyAlsoValidate="False"></Field>
+    <Field Required="False" Name="借讀科別代碼" EmptyAlsoValidate="False"></Field>
+    <Field Required="False" Name="申請開始日期" EmptyAlsoValidate="False"></Field>
+    <Field Required="False" Name="申請結束日期" EmptyAlsoValidate="False"></Field>
+    <Field Required="False" Name="實際開始日期" EmptyAlsoValidate="False"></Field>
+    <Field Required="False" Name="實際結束日期" EmptyAlsoValidate="False"></Field>
   </FieldList>
   <ValidatorList>
     <FieldValidator Name="不可空白" Type="STRINGLENGTH">

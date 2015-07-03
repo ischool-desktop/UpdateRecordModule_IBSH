@@ -130,9 +130,12 @@ namespace UpdateRecordModule_IBSH.UpdateRecordItemControls
 
         private void cbxUpdateCode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string code = cbxUpdateCode.Text.Substring(0, 3);
-            cbxUpdateCode.Items.Add(code);
-            cbxUpdateCode.Text = code;
+            if (cbxUpdateCode.Text.Length >= 3)
+            {
+                string code = cbxUpdateCode.Text.Substring(0, 3);
+                cbxUpdateCode.Items.Add(code);
+                cbxUpdateCode.Text = code;
+            }
         }
 
         private void cbxUpdateCode_TextChanged(object sender, EventArgs e)

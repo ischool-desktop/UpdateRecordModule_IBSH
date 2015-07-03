@@ -292,9 +292,11 @@
     <Compile Include="GovernmentalDocument\Reports\List\IReportBuilder.cs" />
     <Compile Include="GovernmentalDocument\Reports\List\ReportBuilder.cs" />
     <Compile Include="GovernmentalDocument\Reports\List\ReportTemplate.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\RetaintoStudentList.cs" />
     <Compile Include="GovernmentalDocument\Reports\List\rpt_UpdateRecord.cs" />
     <Compile Include="GovernmentalDocument\Reports\List\SH_N_All_List.cs" />
     <Compile Include="GovernmentalDocument\Reports\List\StudentUpdateRecordList.cs" />
+    <Compile Include="GovernmentalDocument\Reports\List\TemporaryStudentList.cs" />
     <Compile Include="GovernmentalDocument\Reports\List\TransferringStudentUpdateRecordList.cs" />
     <Compile Include="GovernmentalDocument\Reports\List\UtilXml.cs" />
     <Compile Include="GovernmentalDocument\UpdateRecordADN.cs">
@@ -492,7 +494,9 @@
     <None Include="Resources\JHSchoolList.xml">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Resources\RetaintoStudentListTemplate.xls" />
     <None Include="Resources\StudentUpdateRecordListTemplate.xls" />
+    <None Include="Resources\TemporaryStudentListTemplate.xls" />
     <None Include="Resources\TransferringStudentUpdateRecordListTemplate.xls" />
   </ItemGroup>
   <ItemGroup>
